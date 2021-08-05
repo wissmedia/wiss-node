@@ -66,6 +66,16 @@ app.get('/', (req, res) => {
   res.send('Hello')
 })
 
+/**
+ * template
+ * app.get('/', (req, res) => {
+  let navTitle = []
+  let menus = []
+  let navMenus = []
+  res.render('/', { navTitle, menus, navMenus })
+})
+ */
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
