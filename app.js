@@ -4,14 +4,20 @@ const path = require('path')
 const logger = require('morgan')
 const createError = require('http-errors');
 
+// import required files
+const config = require('./config')
+
 // set const
-const port = process.env.PORT || 2021
-const host = '0.0.0.0'
+// const port = process.env.PORT || 2021
+// const host = '0.0.0.0'
 const app = express()
 
 // run express app
-app.listen(port, host, () => {
-  console.log(`App listening at http://${host}:${port}`)
+// app.listen(port, host, () => {
+//   console.log(`App listening at http://${host}:${port}`)
+// })
+app.listen(config.app.port, ()=>{
+  console.log(`App listening at ${config.app.port}`)
 })
 
 // view engine
