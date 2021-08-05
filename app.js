@@ -1,4 +1,5 @@
 // import dependendcies
+// require('dotenv').config()
 const express = require('express')
 const path = require('path')
 const logger = require('morgan')
@@ -8,16 +9,14 @@ const createError = require('http-errors');
 const config = require('./config')
 
 // set const
-// const port = process.env.PORT || 2021
-// const host = '0.0.0.0'
 const app = express()
+const host = config.app.host
+const port = config.app.port
+
 
 // run express app
-// app.listen(port, host, () => {
-//   console.log(`App listening at http://${host}:${port}`)
-// })
-app.listen(config.app.port, ()=>{
-  console.log(`App listening at ${config.app.port}`)
+app.listen(port, host, () => {
+  console.log(`App listening at http://${host}:${port}`)
 })
 
 // view engine
