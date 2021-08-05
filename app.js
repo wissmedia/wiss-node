@@ -8,6 +8,7 @@ const createError = require('http-errors');
 
 // # import required files
 const config = require('./config')
+const qbankRouter = require('./routes/qbankRoutes')
 
 // # set app const
 const app = express()
@@ -28,9 +29,9 @@ const dbName = config.db.database
 const dbURI = `mongodb://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}`
 
 // # run express app (no db)
-// app.listen(port, host, () => {
-//   console.log(`App listening at http://${host}:${port}`)
-// })
+app.listen(port, host, () => {
+  console.log(`App listening at http://${host}:${port}`)
+})
 
 // # run express app (with mongodb)
 /**
@@ -39,16 +40,16 @@ const dbURI = `mongodb://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}`
  * `Connected to DB at ${dbURI}`
  * if using dbURI full string
  */
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
-  .then(result => {
-    console.log(`Connected to DB at ${dbHost}:${dbPort}`)
-    app.listen(port, host, () => {
-      console.log(`App listening at http://${host}:${port}`)
-    })
-  })
-  .catch(err => {
-    console.log(err)
-  })
+// mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+//   .then(result => {
+//     console.log(`Connected to DB at ${dbHost}:${dbPort}`)
+//     app.listen(port, host, () => {
+//       console.log(`App listening at http://${host}:${port}`)
+//     })
+//   })
+//   .catch(err => {
+//     console.log(err)
+//   })
 
 // view engine
 app.set('views', path.join(__dirname, 'views'));
@@ -63,18 +64,16 @@ app.use(logger('dev'))
 
 // app routes
 app.get('/', (req, res) => {
-  res.send('Hello')
+  res.send('admin')
+})
+app.get('/admin', (req, res) => {
+  res.send('admin')
+})
+app.get('/responden', (req, res) => {
+  res.send('responden')
 })
 
-/**
- * template
- * app.get('/', (req, res) => {
-  let navTitle = []
-  let menus = []
-  let navMenus = []
-  res.render('/', { navTitle, menus, navMenus })
-})
- */
+app.use('/admin/qbank', qbankRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
