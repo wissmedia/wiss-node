@@ -7,8 +7,11 @@ const config = {
   },
   db: {
     host: process.env.DB_HOST || 'localhost',
-    port: parseInt(process.env.DB_PORT) || 27017,
-    name: process.env.DB_NAME || 'db_test'
+    port: process.env.DB_PORT || 27017,
+    user: process.env.DB_USERNAME || 'admin',
+    pass: process.env.DB_PASSWORD || 'password',
+    database: process.env.DB_DATABASE || 'db_test',
+    db_string: process.env.DB_CONN_STRING
   }
 }
 
