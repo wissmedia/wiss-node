@@ -1,11 +1,14 @@
+require('dotenv').config()
+
 const config = {
   app : {
-    port : 2020
+    host : process.env.APP_HOST || 'localhost',
+    port : parseInt(process.env.APP_PORT) || 1234
   },
   db: {
-    host: 'localhost',
-    port:27017,
-    name:'db'
+    host: process.env.DB_HOST || 'localhost',
+    port: parseInt(process.env.DB_PORT) || 27017,
+    name: process.env.DB_NAME || 'db_test'
   }
 }
 
