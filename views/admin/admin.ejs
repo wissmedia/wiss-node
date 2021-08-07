@@ -1,142 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('../partials/head.ejs') %>
+<%- include('../partials/head.ejs') %>
 
   <body>
     <%- include('../partials/nav.ejs') %>
-    <div class="container">
-      <div class="card-container">
-        <!-- Menu Item Card -->
-        <div class="card fadeInKiri">
-          <a href="content/add.html">
-            <h3>
-              <i class="fas fa-plus-circle"></i>
-            </h3>
-            <div class="card-label">
-              <p>New quesioner</p>
-            </div>
-          </a>
-        </div>
+      <div class="container">
+        <div class="card-container">
+          <!-- Menu Item Card -->
 
-        <div class="card fadeInAtas">
-          <a href="content/quesioner.html">
-            <h3>
-              <i class="fas fa-eye"></i>
-            </h3>
-            <div class="card-label">
-              <p>Publish</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="card fadeInBawah">
-          <a href="content/result.html">
-            <h3>
-              <i class="fas fa-poll"></i>
-            </h3>
-            <div class="card-label">
-              <p>Result</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="card fadeInKiri">
-          <a href="content/add.html">
-            <h3>
-              <i class="fas fa-plus-circle"></i>
-            </h3>
-            <div class="card-label">
-              <p>New quesioner</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="card fadeInAtas">
-          <a href="content/quesioner.html">
-            <h3>
-              <i class="fas fa-eye"></i>
-            </h3>
-            <div class="card-label">
-              <p>Publish</p>
-            </div>
-          </a>
-        </div>
-
-        <!-- CARD BLOCK -->
-        <div class="card-block fadeInKiri">
-          <a href="content/quesioner.html">
-            <h3>New Blog</h3>
-            <div class="card-label">
-              <p>About New Blog</p>
-            </div>
-          </a>
-        </div>
-        <div class="card-block fadeInKanan">
-          <a href="content/quesioner.html">
-            <h3>
-              <i class="fas fa-plus-circle"></i>
-            </h3>
-            <div class="card-label">
-              <p>Add Content</p>
-            </div>
-          </a>
-        </div>
-
-        <div class="card-block fadeInKiri">
-          <a href="content/quesioner.html">
-            <h3>
-              <i class="fas fa-plus-circle"></i>
-            </h3>
-            <div class="card-label">
-              <p>Add Content</p>
-            </div>
-          </a>
-        </div>
-        <!-- END Menu Item Card -->
-      </div>
-    </div>
-
-    <!-- Modal Menu -->
-    <div class="modal" id="modalMenuAkun">
-      <div class="modal-content">
-        <div class="modal-kepala">
-          <span class="close">&times;</span>
-        </div>
-
-        <div class="modal-badan">
-          <div class="profile" id="username">
-            <div class="dpAkun">
-              <i class="far fa-smile"></i>
-              <p>Andika</p>
-            </div>
-          </div>
-
-          <a href="register.html">
-            <div class="list-menu-container" id="register">
-              <i class="fas fa-user"></i>
-              <span class="label-list"> Register </span>
-            </div>
-          </a>
-
-          <a href="login.html">
-            <div class="list-menu-container" id="login">
-              <i class="fas fa-sign-in-alt"></i>
-              <span class="label-list"> Login </span>
-            </div>
-          </a>
-
-          <a href="#">
-            <div class="list-menu-container" id="login">
-              <i class="fas fa-sign-out-alt"></i>
-              <span class="label-list"> Logout </span>
-            </div>
-          </a>
+          <!-- END Menu Item Card -->
         </div>
       </div>
-    </div>
-    <!-- END Modal -->
 
-    <%- include('../partials/footer.ejs') %> <%-
-    include('../partials/footer-script.ejs') %>
+      <%- include('../partials/modal-auth.ejs') %>
+        <%- include('../partials/footer.ejs') %>
+          <%- include('../partials/footer-script.ejs') %>
   </body>
+
 </html>
