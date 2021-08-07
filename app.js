@@ -64,7 +64,7 @@ app.use(logger('dev'))
 
 // app routes
 app.get('/', (req, res) => {
-  res.send('admin')
+  res.render('index')
 })
 app.get('/admin', (req, res) => {
   res.send('admin')
