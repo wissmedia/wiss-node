@@ -67,22 +67,41 @@ app.use(logger('dev'))
 // app routes
 app.get('/', (req, res) => {
   navMenus = []
-  res.render('index', { appTitle, navTitle: 'Paperon', navMenus })
+  res.render('index', { appTitle, navTitle: 'Beranda', navMenus })
 })
 app.get('/admin', (req, res) => {
   const navMenus = [
     { link: '/admin/qbank', icon: 'fas fa-warehouse', label: 'Bank Pertanyaan' },
     { link: '/admin/quesioner', icon: 'fas fa-newspaper', label: 'Kuesioner' },
     { link: '/admin/result', icon: 'fas fa-poll', label: 'Hasil' },
-    { link: '/admin/account', icon: 'fas fa-user-circle', label: 'Akun' },
+    { link: '/admin/setting', icon: 'fas fa-cogs', label: 'Pengaturan' },
   ]
-  res.render('admin/admin',{ appTitle, navTitle: 'Admin Panel', navMenus })
+  res.render('admin/admin', { appTitle, navTitle: 'Admin Panel', navMenus })
 })
+
+app.get('/admin/quesioner', (req, res) => {
+  const navMenus = []
+  res.render('quesioner/quesioner', { appTitle, navTitle: 'Kuesioner', navMenus })
+})
+
+app.get('/admin/result', (req, res) => {
+  const navMenus = []
+  res.render('result/result', { appTitle, navTitle: 'Hasil', navMenus })
+})
+
+app.get('/admin/setting', (req, res) => {
+  const navMenus = []
+  res.render('setting/setting', { appTitle, navTitle: 'Pengaturan', navMenus })
+})
+
 app.get('/responden', (req, res) => {
   res.send('responden')
 })
 
+// auth route
 app.use(authRouter)
+
+// qbank route
 app.use('/admin/qbank', qbankRouter)
 
 // catch 404 and forward to error handler
