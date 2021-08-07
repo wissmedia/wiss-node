@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('../partials/head.ejs') %>
+<%- include('../partials/head.ejs') %>
 
   <body>
     <div class="container">
@@ -10,7 +10,9 @@
             <div class="logo-form fadeInAtas">
               <img src="/logo/72.png" alt="Logo" />
             </div>
-            <p><%= navTitle %></p>
+            <p>
+              <%= navTitle %>
+            </p>
             <div class="register-link fadeInKanan">
               <p>
                 <a href="/login">
@@ -27,26 +29,14 @@
                 <span>
                   <i class="fas fa-user"></i>
                 </span>
-                <input
-                  type="text"
-                  name="name"
-                  id="nama"
-                  placeholder="Your Name"
-                  required
-                />
+                <input type="text" name="name" id="nama" placeholder="Your Name" required />
               </div>
 
               <div class="grup-input fadeIn">
                 <span>
                   <i class="fas fa-envelope"></i>
                 </span>
-                <input
-                  type="text"
-                  name="email"
-                  id="email"
-                  placeholder="Email"
-                  required
-                />
+                <input type="text" name="email" id="email" placeholder="Email" required />
               </div>
               <div class="email error"></div>
 
@@ -54,13 +44,7 @@
                 <span>
                   <i class="fas fa-key"></i>
                 </span>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="Password"
-                  required
-                />
+                <input type="password" name="password" id="password" placeholder="Password" required />
               </div>
               <div class="password error"></div>
 
@@ -118,4 +102,5 @@
     </script>
     <%- include('../partials/footer-script.ejs') %>
   </body>
+
 </html>

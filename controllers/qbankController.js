@@ -1,8 +1,10 @@
 let appTitle = "Paperon";
+
 const qbank_index = (req, res) => {
-  let navTitle = [];
-  let menus = [];
-  let navMenus = [];
+  let navMenus = [
+    { link: '/admin', icon: 'fas fa-chevron-circle-left', label: 'Kembali' },
+    { link: '/admin/qbank/add', icon: 'fas fa-plus-circle', label: 'Tambah' },
+  ];
   res.render("qbank/qbank", {
     appTitle,
     navTitle: "Bank Pertanyaan",
@@ -10,16 +12,24 @@ const qbank_index = (req, res) => {
   });
 };
 const qbank_detail = (req, res) => {
-  let navTitle = [];
-  let menus = [];
-  let navMenus = [];
-  res.send("qbank - detail");
+  let navMenus = [
+    { link: '/admin/qbank', icon: 'fas fa-chevron-circle-left', label: 'Kembali' },
+  ];
+  res.render('qbank/qbank-detail', {
+    appTitle,
+    navTitle: "Detail Pertanyaan",
+    navMenus,
+  });
 };
 const qbank_add_get = (req, res) => {
-  let navTitle = [];
-  let menus = [];
-  let navMenus = [];
-  res.send("qbank - add_get");
+  let navMenus = [
+    { link: '/admin/qbank', icon: 'fas fa-chevron-circle-left', label: 'Kembali' },
+  ];
+  res.render('qbank/qbank-add', {
+    appTitle,
+    navTitle: "Tambah Pertanyaan",
+    navMenus,
+  });
 };
 const qbank_add_post = (req, res) => {
   let navTitle = [];

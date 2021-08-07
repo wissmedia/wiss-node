@@ -80,17 +80,23 @@ app.get('/admin', (req, res) => {
 })
 
 app.get('/admin/quesioner', (req, res) => {
-  const navMenus = []
+  const navMenus = [
+    { link: '/admin', icon: 'fas fa-chevron-circle-left', label: 'Kembali' }
+  ]
   res.render('quesioner/quesioner', { appTitle, navTitle: 'Kuesioner', navMenus })
 })
 
 app.get('/admin/result', (req, res) => {
-  const navMenus = []
+  const navMenus = [
+    { link: '/admin', icon: 'fas fa-chevron-circle-left', label: 'Kembali' }
+  ]
   res.render('result/result', { appTitle, navTitle: 'Hasil', navMenus })
 })
 
 app.get('/admin/setting', (req, res) => {
-  const navMenus = []
+  const navMenus = [
+    { link: '/admin', icon: 'fas fa-chevron-circle-left', label: 'Kembali' },
+  ]
   res.render('setting/setting', { appTitle, navTitle: 'Pengaturan', navMenus })
 })
 
