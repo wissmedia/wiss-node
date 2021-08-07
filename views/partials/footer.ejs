@@ -1,4 +1,25 @@
 <footer>
   <div class="bottom-menu">
+    <% if (navMenus.length> 0) { %>
+      <% navMenus.forEach(item=> { %>
+        <div class="menu">
+          <a href="<%= item.link %> ">
+            <i class="<%= item.icon %> "></i>
+            <p>
+              <%= item.label %>
+            </p>
+          </a>
+        </div>
+        <% }) %>
+          <% } else { %>
+            <div class="menu">
+              <a href="/">
+                <i class="fas fa-home"></i>
+                <p>
+                  Beranda
+                </p>
+              </a>
+            </div>
+            <% } %>
   </div>
 </footer>
