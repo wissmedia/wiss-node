@@ -9,11 +9,13 @@ const createError = require('http-errors');
 // # import required files
 const config = require('./config')
 const qbankRouter = require('./routes/qbankRoutes')
+const authRouter = require('./routes/authRouter')
 
 // # set app const
 const app = express()
 const host = config.app.host
 const port = config.app.port
+const appTitle = 'Paperon'
 
 // # set db const
 const dbHost = config.db.host
@@ -64,15 +66,23 @@ app.use(logger('dev'))
 
 // app routes
 app.get('/', (req, res) => {
-  res.render('index')
+  navMenus = []
+  res.render('index', { appTitle, navTitle: 'Paperon', navMenus })
 })
 app.get('/admin', (req, res) => {
-  res.send('admin')
+  const navMenus = [
+    { link: '/admin/qbank', icon: 'fas fa-warehouse', label: 'Bank Pertanyaan' },
+    { link: '/admin/quesioner', icon: 'fas fa-newspaper', label: 'Kuesioner' },
+    { link: '/admin/result', icon: 'fas fa-poll', label: 'Hasil' },
+    { link: '/admin/account', icon: 'fas fa-user-circle', label: 'Akun' },
+  ]
+  res.render('admin/admin',{ appTitle, navTitle: 'Admin Panel', navMenus })
 })
 app.get('/responden', (req, res) => {
   res.send('responden')
 })
 
+app.use(authRouter)
 app.use('/admin/qbank', qbankRouter)
 
 // catch 404 and forward to error handler
@@ -88,5 +98,5 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error', { appTitle, navTitle: '404' });
 });
