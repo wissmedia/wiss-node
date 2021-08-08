@@ -8,9 +8,10 @@ const createError = require('http-errors');
 
 // # import required files
 const config = require('./config')
-const qbankRouter = require('./routes/qbankRoutes')
+const qbankRouter = require('./routes/qbankRouter')
 const authRouter = require('./routes/authRouter')
 const quesionerRouter = require('./routes/quesionerRouter')
+const resultRouter = require('./routes/resultRouter')
 
 // # set app const
 const app = express()
@@ -87,12 +88,7 @@ app.use('/admin/qbank', qbankRouter)
 // quesioner route
 app.use('/admin/quesioner', quesionerRouter)
 // result route
-app.get('/admin/result', (req, res) => {
-  const navMenus = [
-    { link: '/admin', icon: 'fas fa-chevron-circle-left', label: 'Kembali' }
-  ]
-  res.render('result/result', { appTitle, navTitle: 'Hasil', navMenus })
-})
+app.use('/admin/result', resultRouter)
 //setting route
 app.get('/admin/setting', (req, res) => {
   const navMenus = [
