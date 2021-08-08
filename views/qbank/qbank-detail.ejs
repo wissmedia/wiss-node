@@ -4,13 +4,21 @@
 
   <body>
     <%- include('../partials/nav.ejs') %>
-      <div class="container">
-        <div class="card-container">
-          <!-- Code here -->
-
-          <!-- END Code Here -->
+    <div class="container">
+      <div class="card-container">
+        <!-- Code here -->
+        <div class="card-block fadeIn">
+          <h2>
+           Detail
+          </h2>
+          <h3 class="card-label">
+            label
+          </h3>
         </div>
+        <button class="tombol-block tmb-batal fadeInBawah" data-doc=""><i class="fas fa-trash-alt"></i></button>
+        <!-- END Code Here -->
       </div>
+    </div>
 
       <%- include('../partials/modal-auth.ejs') %>
         <%- include('../partials/footer.ejs') %>

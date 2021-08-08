@@ -10,6 +10,7 @@ const createError = require('http-errors');
 const config = require('./config')
 const qbankRouter = require('./routes/qbankRoutes')
 const authRouter = require('./routes/authRouter')
+const quesionerRouter = require('./routes/quesionerRouter')
 
 // # set app const
 const app = express()
@@ -78,21 +79,21 @@ app.get('/admin', (req, res) => {
   ]
   res.render('admin/admin', { appTitle, navTitle: 'Admin Panel', navMenus })
 })
-
-app.get('/admin/quesioner', (req, res) => {
-  const navMenus = [
-    { link: '/admin', icon: 'fas fa-chevron-circle-left', label: 'Kembali' }
-  ]
-  res.render('quesioner/quesioner', { appTitle, navTitle: 'Kuesioner', navMenus })
-})
-
+// #Admin Route
+// auth route
+app.use(authRouter)
+// qbank route
+app.use('/admin/qbank', qbankRouter)
+// quesioner route
+app.use('/admin/quesioner', quesionerRouter)
+// result route
 app.get('/admin/result', (req, res) => {
   const navMenus = [
     { link: '/admin', icon: 'fas fa-chevron-circle-left', label: 'Kembali' }
   ]
   res.render('result/result', { appTitle, navTitle: 'Hasil', navMenus })
 })
-
+//setting route
 app.get('/admin/setting', (req, res) => {
   const navMenus = [
     { link: '/admin', icon: 'fas fa-chevron-circle-left', label: 'Kembali' },
@@ -100,15 +101,10 @@ app.get('/admin/setting', (req, res) => {
   res.render('setting/setting', { appTitle, navTitle: 'Pengaturan', navMenus })
 })
 
+// responden route
 app.get('/responden', (req, res) => {
   res.send('responden')
 })
-
-// auth route
-app.use(authRouter)
-
-// qbank route
-app.use('/admin/qbank', qbankRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
